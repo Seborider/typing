@@ -8,4 +8,17 @@ import { faker } from '@faker-js/faker'
 })
 export class AppComponent {
   randomText = faker.lorem.sentence();
+  enteredText = "";
+
+  onInput(value: string) {
+    this.enteredText = value;
+  }
+
+  compare(randomLetter: string, enteredLetter: string) {
+    if (!enteredLetter) {
+      return 'pending';
+    }
+    return randomLetter === enteredLetter ? 'correct' : 'incorrect'
+  }
+
 }
